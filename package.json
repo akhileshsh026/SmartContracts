@@ -1,0 +1,22 @@
+{
+  "name": "smartcontracts",
+  "version": "1.0.0",
+  "description": "Smart contracts creations in the 4th module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhileshsh026/SmartContracts.git"
+  },
+  "author": "Akhileshsh026",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akhileshsh026/SmartContracts/issues"
+  },
+  "homepage": "https://github.com/akhileshsh026/SmartContracts#readme",
+  "dependencies": {
+    "web3": "^1.0.0-beta.55"
+  }
+}
