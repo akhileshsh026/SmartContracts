@@ -3,23 +3,27 @@ pragma solidity ^0.5.0;
 
 contract DappUnivercity 
 {
-     string value;
      
-     constructor() public 
-     {
-         value = "Akhilesh";   //default value
+     enum State { Start ,Pause ,Stop }
+     
+     State public state;
+     
+     constructor () public {
+         state = State.Stop;
      }
 
-
-     function getValue() public view  returns(string memory)
-     {
-          return value;
-     }
-
-     function setValue(string memory _value) public  {
-         
-         value = _value;
-     }
-
+    function startState() public {
+        
+        state = State.Start;
+    }
+    
+    function PauseState() public {
+        state = State.Pause;
+    }
+    
+    function isStart() public view returns(bool)
+    {
+         return state == State.Start;
+    }
 
 }
