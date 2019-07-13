@@ -3,8 +3,7 @@ pragma solidity ^0.5.0;
 
 contract DappUnivercity 
 {
-     
-    struct Person {
+        struct Person {
      //   uint256 pid;
         string _firstName;
         string _last_Name;
@@ -16,8 +15,15 @@ contract DappUnivercity
     
     uint256 public PeopleCount;
     
-    modifier OnlyOwner {
+    uint256 opening_time = 1563018969; 
+    
+    modifier OnlyOwner() {
         require(msg.sender == owner,"You must be an Owner");
+        _;
+    }
+    
+    modifier OnlyinTime() {
+        require(block.timestamp >= opening_time);
         _;
     }
     
@@ -25,7 +31,7 @@ contract DappUnivercity
         owner = msg.sender;
     }
     
-    function addPerson(string memory _fn,string memory _ln) public OnlyOwner
+    function addPerson(string memory _fn,string memory _ln) public OnlyOwner OnlyinTime
     {
         IncrementCount();
         people[PeopleCount] = Person(_fn,_ln);
