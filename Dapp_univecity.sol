@@ -5,19 +5,34 @@ contract DappUnivercity
 {
      
     struct Person {
-       // uint256 pid;
+     //   uint256 pid;
         string _firstName;
         string _last_Name;
     }
     
     mapping(uint => Person)public people;
     
+    address owner;
+    
     uint256 public PeopleCount;
     
-    function addPerson(string memory _fn,string memory _ln) public 
+    modifier OnlyOwner {
+        require(msg.sender == owner,"You must be an Owner");
+        _;
+    }
+    
+    constructor() public {
+        owner = msg.sender;
+    }
+    
+    function addPerson(string memory _fn,string memory _ln) public OnlyOwner
     {
-        PeopleCount +=1;
+        IncrementCount();
         people[PeopleCount] = Person(_fn,_ln);
+    }
+    
+    function IncrementCount() internal {
+        PeopleCount +=1;
     }
 
 }
