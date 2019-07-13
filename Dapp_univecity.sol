@@ -4,26 +4,18 @@ pragma solidity ^0.5.0;
 contract DappUnivercity 
 {
      
-     enum State { Start ,Pause ,Stop }
-     
-     State public state;
-     
-     constructor () public {
-         state = State.Stop;
-     }
-
-    function startState() public {
-        
-        state = State.Start;
+    struct Person {
+        string _firstName;
+        string _last_Name;
     }
     
-    function PauseState() public {
-        state = State.Pause;
-    }
+    Person[] public people;
+    uint256 public PeopleCount;
     
-    function isStart() public view returns(bool)
+    function addPerson(string memory _fn,string memory _ln) public 
     {
-         return state == State.Start;
+               people.push(Person(_fn,_ln));
+               PeopleCount +=1;
     }
 
 }
