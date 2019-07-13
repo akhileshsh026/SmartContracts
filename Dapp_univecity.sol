@@ -5,7 +5,7 @@ contract DappUnivercity
 {
      
     struct Person {
-        uint256 pid;
+       // uint256 pid;
         string _firstName;
         string _last_Name;
     }
@@ -17,7 +17,7 @@ contract DappUnivercity
     function addPerson(string memory _fn,string memory _ln) public 
     {
         PeopleCount +=1;
-        people[PeopleCount] = Person(PeopleCount,_fn,_ln);
+        people[PeopleCount] = Person(_fn,_ln);
     }
 
 }
