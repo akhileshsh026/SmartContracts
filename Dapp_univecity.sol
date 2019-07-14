@@ -19,7 +19,7 @@ contract DappUnivercity
  
  //fallback function
  
- function() external {
+ function() external payable {
      BuyTokens();
  }
  
