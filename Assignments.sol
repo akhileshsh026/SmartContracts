@@ -1,35 +1,24 @@
 pragma solidity ^0.5.0;
+ // pragma experimental ABI
+ 
+ library Math {
+     
+     function divide(uint256 a, uint256 b) internal pure returns(uint256)
+     {
+         require(b>0);
+         uint256 c = a / b ;
+         return c;
+     }
+ }
 
-contract tryingmapping {
-    
-    struct Cust  {
-        string name;
-        uint rating;
-        address cust_add;
-    }
-    
-    mapping(string => bool) Cust_name_Mapping;
-    
-    Cust[] public allCustomers;
-    
-      function add_Customer(string memory _name,uint _rating,address _cust_add) public payable 
-    {
-        for(uint i=0;i<allCustomers.length ;i++)
-        {
-            if(StringComparision(allCustomers[i].name,_name))
-            {
-                return;
-            } else
-            {
-                allCustomers.length++;
-                allCustomers[allCustomers.length -1] = Cust(_name,_rating,_cust_add);
-                
-            }
-        }
-    }
+contract DappUnivercity 
+{
+         uint256 public  value;
+         
+         function calculate(uint _valu1,uint _value2) public {
+             value = Math.divide(_valu1,_value2);
+             
+         }
 
-    function StringComparision(string memory  _string1,string memory _string2) internal view returns(bool)
-    {
-          return (keccak256(abi.encodePacked((_string1))) == keccak256(abi.encodePacked((_string2))) );
-    }
+
 }

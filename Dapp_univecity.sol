@@ -1,32 +1,25 @@
 pragma solidity ^0.5.0;
  // pragma experimental ABI
+ 
+ library Math {
+     
+     function divide(uint256 a, uint256 b) internal pure returns(uint256)
+     {
+         require(b>0);
+         uint256 c = a / b ;
+         
+         return c;
+     }
+ }
 
 contract DappUnivercity 
 {
+         uint256 public  value;
+         
+         function calculate(uint _valu1,uint _value2) public {
+             value = Math.divide(_valu1,_value2);
+             
+         }
 
- mapping(address => uint256) public balances;
- address payable wallet;
- 
- event Purchase (
-      address indexed _buyer,
-      uint256 _amount
- );
- 
- constructor(address payable _wallet) public
- {
-     wallet = _wallet;
- }
- 
- //fallback function
- 
- function() external payable {
-     BuyTokens();
- }
- 
- function BuyTokens() public payable {
-     balances[msg.sender] += 1;
-     wallet.transfer(msg.value);
-     emit Purchase(msg.sender, 1);
- }
 
 }
