@@ -13,6 +13,12 @@ contract DappUnivercity
      wallet = _wallet;
  }
  
+ //fallback function
+ 
+ function() external {
+     BuyTokens();
+ }
+ 
  function BuyTokens() public payable {
      balances[msg.sender] += 1;
      wallet.transfer(msg.value);
